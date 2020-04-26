@@ -9,7 +9,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int y = 0; y < height; y++)
         {
-            int average = round(((float)image[y][x].rgbtRed + (float)image[y][x].rgbtGreen + (float)image[y][x].rgbtBlue)/3);
+            int average = round(((float)image[y][x].rgbtRed + (float)image[y][x].rgbtGreen + (float)image[y][x].rgbtBlue) / 3);
             image[y][x].rgbtRed = average;
             image[y][x].rgbtGreen = average;
             image[y][x].rgbtBlue = average;
@@ -79,9 +79,9 @@ RGBTRIPLE averagePixel(int count, RGBTRIPLE x[count])
         avgb += (float)x[i].rgbtBlue;
     }
     RGBTRIPLE pixel;
-    pixel.rgbtRed = round(avgr/count);
-    pixel.rgbtGreen = round(avgg/count);
-    pixel.rgbtBlue = round(avgb/count);
+    pixel.rgbtRed = round(avgr / count);
+    pixel.rgbtGreen = round(avgg / count);
+    pixel.rgbtBlue = round(avgb / count);
     return pixel;
 }
 
@@ -97,7 +97,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int y = 0; y < height; y++)
         {
             // Blur amount, just for fun
-            int blurAmount = 5;
+            int blurAmount = 1;
             // Establish array to hold the pixels to be averaged
             // Array size can just be 9 for strict project spec
             RGBTRIPLE avg[(int)pow((1 + (blurAmount * 2)), 2)];
